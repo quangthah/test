@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang web đầu tiên</title>
+    <script>
+        // Lấy số lần nhấn từ localStorage (nếu có)
+        let clickCount = localStorage.getItem("clickCount") ? parseInt(localStorage.getItem("clickCount")) : 0;
+
+        // Cập nhật số lần nhấn khi tải trang
+        window.onload = function () {
+            document.getElementById("clickCounter").innerText = "Số lần nhấn nút: " + clickCount;
+        };
+
+        function showMessage() {
+            clickCount++; // Tăng số lần nhấn lên 1
+            localStorage.setItem("clickCount", clickCount); // Lưu vào localStorage
+            alert("MÀY ĐÃ BỊ LỪA! +1 Thằng ngu bấm nút"); // Hiển thị thông báo
+            document.getElementById("clickCounter").innerText = "Tổng số các thằng ngu đã bấm nút: " + clickCount;
+        }
+    </script>
+</head>
+<body>
+    <h1>Xin chào các bạn!!!</h1>
+    <p>Đây là trang web nhận robux miễn phí.</p>
+    <p>Hãy bấm vào nút để nhận 1000 robux miễn phí</p>
+    <button onclick="showMessage()">Nhấn vào đây để nhận robux miễn phí</button>
+    <p id="clickCounter">Số lần nhấn nút: 0</p> <!-- Hiển thị số lần nhấn -->
+</body>
+</html>
